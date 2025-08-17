@@ -1,87 +1,52 @@
 # snowflake_proj6_snowpipe
+This project demonstrates Snowpipe, Snowflake’s continuous data ingestion service. The exercises cover:
+Setting up databases, tables, stages, and file formats for Snowpipe
+Configuring Snowpipe for automatic data loading from S3
+Managing error handling in Snowpipe
+Controlling Snowpipe execution (pause, resume, manual triggers)
+Performing end-to-end testing and cleanup
 
-TASK 1:-
-Setting Up Database, Table, Stage, and File Format for Snowpipe
+The goal is to learn how Snowpipe enables real-time or near-real-time ingestion of data with minimal manual intervention.
 
-Use the Demo Warehouse: Ensure you are using the demo warehouse for this assignment.
-Create a Database: Create a database called sales_db_snowpipe.
+Prerequisites:
+Active Snowflake account
+Access to Snowflake Web UI or SnowSQL
+AWS credentials with access to the specified S3 buckets
+Demo warehouse created in Project 1
 
-Create a Table: Within the sales_db_snowpipe database, create a table named sales_pipe_table with the following columns:
-order_id (INTEGER)
-customer_id (INTEGER)
-customer_name (STRING)
-order_date (DATE)
-product (STRING)
-quantity (INTEGER)
-price (FLOAT)
-complete_address (STRING)
+Tasks Performed:-
+Task 1: Setting Up Database, Table, Stage, and File Format
+Created a database and table for sales data
+Created an external stage pointing to the S3 bucket
+Defined a CSV file format for data ingestion
 
-Create an External Stage: Set up an external stage named s3_stage_snowpipe that points to the S3 bucket s3://snowflake-hands-on-data/sample_data_snowpipe/step-1/ using the provided AWS credentials:
-AWS Access Key: 888888888888
-AWS Secret Key: 888888888888
+Task 2: Setting Up Snowpipe for Automatic Data Loading
+Created a Snowpipe for automatic ingestion from the external stage
+Verified the Snowpipe configuration
+Ensured that no data existed in the table before triggering the pipe
 
-Create a File Format: Define a CSV file format named csv_format_snowpipe with the following properties:
-Type: CSV
-Field Delimiter: , (comma)
-Skip the first row as header: SKIP_HEADER = 1
+Task 3: Error Handling in Snowpipe
+Listed existing Snowpipes and verified their setup
+Modified Snowpipe to include error handling for invalid rows
+Paused the Snowpipe for testing and maintenance
+Verified the Snowpipe status
 
+Task 4: Managing Snowpipe Execution
+Resumed the paused Snowpipe
+Manually triggered data loading from the external stage
+Verified that data was successfully loaded into the table
 
+Task 5: End-to-End Testing and Cleanup
+Recreated the external stage and Snowpipe with error handling
+Manually triggered the Snowpipe to load new data
+Verified successful data ingestion
+Cleaned up all resources (Snowpipe, stage, table, database)
 
-TASK 2:-
-Setting up Snowpipe for Automatic Data Loading
-
-Step 1: Ensure you are using the demo warehouse for this assignment.
-Step 2: Continue using the sales_db_snowpipe database created in the previous assignment.
-Step 3: Create a Snowpipe for automatic data loading
-Step 4: Describe the Snowpipe configuration
-After creating the Snowpipe, describe it to verify the configuration.
-Step 5: Check there should be no data in the table
-Ensure that the data has not yet been loaded into the table before triggering the pipe.
-
-
-
-TASK 3:-
-Error Handling in Snowpipe
-
-Continue Using the Demo Warehouse: Ensure you are utilizing the demo warehouse for all operations in this assignment.
-Use the Existing Database: Switch to the database created in Assignment 21, which contains the table for loading sales data.
-Show Existing Pipes: List all the currently configured Snowpipes to verify the existing setups.
-Recreate the Snowpipe with Error Handling: Modify the existing Snowpipe configuration to include error handling options. Set it to continue loading data even when it encounters invalid rows.
-Describe the Snowpipe Configuration: Review the settings of the newly created Snowpipe to confirm the configuration changes.
-Pause the Snowpipe: Temporarily halt the execution of the Snowpipe. This is useful for maintenance or testing purposes.
-
-Check the Status of the Snowpipe: Monitor the status of the Snowpipe to ensure it is paused and not actively processing any files.
-
-
-TASK 4:-
-Managing Snowpipe Execution
-
-Continue Using the Demo Warehouse: Ensure you are utilizing the demo warehouse for all operations in this assignment.
-Use the Existing Database: Switch to the database created in Assignment 21, which contains the sales data table.
-Show Existing Pipes: List all currently configured Snowpipes to verify their status.
-Resume the Snowpipe: Unpause the previously paused Snowpipe to allow it to continue processing incoming data.
-Manually Trigger the Snowpipe: Refresh the Snowpipe to load data from the external stage.
-Check the Status of the Snowpipe: Monitor the status of the Snowpipe to ensure it is actively processing data.
-Verify Data Load: Query the sales data table to check if new data has been successfully loaded.
-
-
-
-TASK 5:-
-End-to-End Testing and Cleanup of Snowpipe
-
-Continue Using the Demo Warehouse: Ensure that you are using the demo warehouse for executing all queries in this assignment.
-Use the Existing Database: Switch to the database created for Snowpipe, which contains the sales data table.
-Recreate the External Stage: Set up an external stage pointing to the S3 bucket that contains the sales data.
-S3 Path: s3://snowflake-hands-on-data/sample_data_snowpipe/step-2/
-Recreate the Snowpipe with Error Handling: Create or replace the Snowpipe, ensuring it has error handling for invalid rows.
-Manually Trigger the Snowpipe: Refresh the Snowpipe to initiate the loading of data from the external stage.
-Check the Status of the Snowpipe: Verify the status of the Snowpipe to ensure it is running and processing data.
-Verify Data Load: Query the sales data table to confirm that the data has been successfully loaded.
-Cleanup Resources: Drop the Snowpipe, stage, table, and database to clean up the environment.
-
-
-
-
+Real-World Relevance:
+Snowpipe allows automatic, near-real-time ingestion of cloud-based data
+Error handling options ensure that invalid rows do not block data pipelines
+Execution management (pause, resume, manual trigger) provides control over automated pipelines
+End-to-end testing ensures robust and reliable continuous data ingestion
 
 
 
