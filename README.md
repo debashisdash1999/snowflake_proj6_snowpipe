@@ -66,7 +66,7 @@ Verify Data Load: Query the sales data table to check if new data has been succe
 
 
 
-TAASK 5:-
+TASK 5:-
 End-to-End Testing and Cleanup of Snowpipe
 
 Continue Using the Demo Warehouse: Ensure that you are using the demo warehouse for executing all queries in this assignment.
